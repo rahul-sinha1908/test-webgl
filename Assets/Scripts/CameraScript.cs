@@ -21,7 +21,14 @@ public class CameraScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-
+		if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.F))
+		{
+			// Get highest resolution supported by the current screen.
+			var resolution = Screen.resolutions[Screen.resolutions.Length - 1];
+			
+			// The last parameter "true" denotes if it should be fullscreen or not.
+			Screen.SetResolution(resolution.width, resolution.height, true);
+		}
 	}
 
 }
