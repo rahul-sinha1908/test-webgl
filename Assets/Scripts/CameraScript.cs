@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Runtime.InteropServices;
 
 public class CameraScript : MonoBehaviour {
 
 	private WebCamTexture mCamera = null;
 	public Material material;
+
+	[DllImport ("TestLibrary")]
+	public static extern int add(int x, int y);
 
 	// Use this for initialization
 	void Start ()
@@ -15,6 +19,8 @@ public class CameraScript : MonoBehaviour {
 			mCamera = new WebCamTexture ();
 			material.mainTexture = mCamera;
 			mCamera.Play ();
+
+			Debug.Log("Print Value : "+add(10, 10));
 	
 	}
 
